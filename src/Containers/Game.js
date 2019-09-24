@@ -30,33 +30,32 @@ class Game extends Component {
     }
 
     CPUMovement() {
-        const history = this.props.history.slice(0, this.props.stepNumber+1);
+        const history = this.props.history.slice(0, this.props.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();
-        var random = 0.0;        
-        
+        var random = 0.0;
+
         while (true) {
             //Tablero lleno
-            if((history.length) -1 == 9){                
-               return;    
+            if ((history.length) - 1 == 9) {
+                return;
             }
             random = Math.round(Math.random() * 8)
 
-            if (squares[random] === null) {               
-                this.handleClick(random);                
+            if (squares[random] === null) {
+                this.handleClick(random);
                 return;
             }
-                
         }
 
-        
     }
     render() {
         console.log("hace render");
         const {
             history,
             stepNumber,
-            xIsNext
+            xIsNext,
+            modeGame
 
         } = this.props;
 
@@ -81,28 +80,31 @@ class Game extends Component {
         } else {
             status = 'Turno de: ' + (xIsNext ? 'X' : 'O');
         }
-        if (!xIsNext) {
-                       
-           console.log("turno de O");
-            this.CPUMovement()
-            
+        if (modeGame === 2) {
+            if (!xIsNext) {
+                console.log("turno de O");
+                this.CPUMovement()
+                return (
+                    <GameUI status={status} moves={moves} squares={current.squares}
+                        onClick={(i) => this.handleClick(i)}>
+                    </GameUI>
+                )
+            } else {
+                console.log("turno de X");
+                return (
+                    <GameUI status={status} moves={moves} squares={current.squares}
+                        onClick={(i) => this.handleClick(i)}>
+                    </GameUI>
+                )
+            };
+        }else{
             return (
-
                 <GameUI status={status} moves={moves} squares={current.squares}
                     onClick={(i) => this.handleClick(i)}>
                 </GameUI>
+            ) 
+        }
 
-            )
-        } else {
-            console.log("turno de X");
-            return (
-
-                <GameUI status={status} moves={moves} squares={current.squares}
-                    onClick={(i) => this.handleClick(i)}>
-                </GameUI>
-
-            )
-        };
     }
 }
 /*function mapStateToProps(state){
@@ -112,7 +114,8 @@ class Game extends Component {
 const mapStateToProps = state => ({
     history: state.history,
     stepNumber: state.stepNumber,
-    xIsNext: state.xIsNext
+    xIsNext: state.xIsNext,
+    modeGame: state.modeGame,
 });
 
 

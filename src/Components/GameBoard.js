@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Square from './Square'
 
 
-class Board extends Component {
+class GameBoard extends Component {
 
     renderSquare(i) {
         return (<Square value={this.props.squares[i]}
@@ -42,4 +42,4 @@ class Board extends Component {
 
 }
 
-export default Board;
+export default GameBoard;

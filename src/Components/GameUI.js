@@ -1,15 +1,15 @@
 import React from 'react';
 import GameInfo from './GameInfo';
-import Board from './GameBoard'
+import GameBoard from './GameBoard'
 
-const GameBoard = (props) => {
+const GameUI = (props) => {
 
     return (
         <div className="game" >
             <div className="container">
                 <div className="row">
                     <div className="col-md-8 col-xs-12">
-                        <Board
+                        <GameBoard
                             squares={props.squares}
                             onClick={(i) => props.onClick(i)}
                         />
@@ -24,4 +24,4 @@ const GameBoard = (props) => {
     );
 }
 
-export default GameBoard;
+export default GameUI;

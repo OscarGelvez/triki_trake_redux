@@ -1,5 +1,6 @@
 import { type as SAVE_MOVEVENT } from '../actions/currentMovement';
 import { type as JUMP_TO_MOVEVENT } from '../actions/jumpToMovement';
+import { type as SET_MODEGAME } from '../actions//setModeGame';
 
 
 const defaultState = {
@@ -8,6 +9,7 @@ const defaultState = {
     }],
     stepNumber: 0,
     xIsNext: true,
+    modeGame: 1,
 }
 
 function reducer(state = defaultState, { type, payload }) {
@@ -38,8 +40,6 @@ function reducer(state = defaultState, { type, payload }) {
         case JUMP_TO_MOVEVENT: {
 
             if (payload === 0) {
-                console.log("llego cero");
-                console.log(defaultState);
                 return defaultState;
             }
             console.log("pasa");
@@ -48,6 +48,13 @@ function reducer(state = defaultState, { type, payload }) {
                 ...state,
                 stepNumber: payload,
                 xIsNext: (payload % 2) === 0,
+            }
+        }
+
+        case SET_MODEGAME: {          
+            return {                
+                ...state,
+                modeGame: payload,
             }
         }
 
