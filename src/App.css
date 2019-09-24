@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
 .App-header {
@@ -29,6 +30,7 @@ ol, ul {
   clear: both;
   content: "";
   display: table;
+  width: 50%;
 }
 
 .status {
@@ -36,18 +38,19 @@ ol, ul {
 }
 
 .square {
-  background: #fff;
-  border: 1px solid #999;
+  background: rgb(130, 131, 131);
+  border: 1px solid rgb(245, 245, 245);
   float: left;
-  font-size: 24px;
+  font-size: 50px;
   font-weight: bold;
-  line-height: 34px;
-  height: 60px;
+  line-height: 50px;
+  height: 100px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 60px;
+  width: 100px;
+  
 }
 
 .square:focus {
@@ -58,11 +61,31 @@ ol, ul {
   background: #ddd;
 }
 
-.game {
-  display: flex;
-  flex-direction: row;
+.game{
+  background-color: #282c34;
 }
-
+.game-board{
+  background-color: #282c34;
+  text-align: center;
+  
+}
 .game-info {
   margin-left: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.btnMoves{
+  width: 200px;
+}
+.statusText{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.board-row {
+  width: 50%;
+  margin-left: 150px !important;
+}
+.squareCol{
+  margin-left: 100px;
 }
