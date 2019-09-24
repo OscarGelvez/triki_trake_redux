@@ -13,46 +13,53 @@ const defaultState = {
 }
 
 function reducer(state = defaultState, { type, payload }) {
-    let auxHistory = [];    
+    let auxHistory = [];
     switch (type) {
         case SAVE_MOVEVENT: {
             if (!payload) {
                 return null;
-            }     
+            }
 
             if (state.stepNumber === 0) {
                 auxHistory = state.history.slice();
-                auxHistory.push({squares: payload});
-                
-            }else{
-                auxHistory = state.history.slice(0, state.stepNumber+1);
-                auxHistory.push({squares: payload});
+                auxHistory.push({ squares: payload });
+
+            } else {
+                auxHistory = state.history.slice(0, state.stepNumber + 1);
+                auxHistory.push({ squares: payload });
             }
             return {
                 ...state,
                 history: auxHistory,
-                stepNumber: auxHistory.length-1, 
+                stepNumber: auxHistory.length - 1,
                 xIsNext: !state.xIsNext
             }
         }
-        
+
 
         case JUMP_TO_MOVEVENT: {
-
             if (payload === 0) {
-                return defaultState;
+                let prevModeGame = state.modeGame;
+                return {
+                    history: [{
+                        squares: Array(9).fill(null)
+                    }],
+                    stepNumber: 0,
+                    xIsNext: true,
+                    modeGame: prevModeGame,
+                };
             }
             console.log("pasa");
             return {
-                
+
                 ...state,
                 stepNumber: payload,
                 xIsNext: (payload % 2) === 0,
             }
         }
 
-        case SET_MODEGAME: {          
-            return {                
+        case SET_MODEGAME: {
+            return {
                 ...state,
                 modeGame: payload,
             }

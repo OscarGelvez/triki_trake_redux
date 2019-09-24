@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Tic tac toe</h1>
+          <h1 style={{color: "#59c055", fontSize: "45px"}}>Tic tac toe</h1>
           <GameMode onClick={(i) => this.props.SetModeGame(i)}></GameMode>
           <Game></Game>
         </header>

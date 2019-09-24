@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: #283428;
 }
 
 .App-header {
@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(252, 252, 252);
 }
 
 .App-link {
@@ -80,6 +80,7 @@ ol, ul {
 .statusText{
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .board-row {
@@ -88,4 +89,8 @@ ol, ul {
 }
 .squareCol{
   margin-left: 100px;
+}
+.modeGame{
+  margin: 25px;
+  margin-bottom: 55px;
 }

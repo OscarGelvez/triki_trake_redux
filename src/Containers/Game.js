@@ -65,7 +65,7 @@ class Game extends Component {
         const moves = history.map((step, move) => {
             const desc = move ?
                 'Ir al movimiento #' + move :
-                'Inicia el juego';
+                'Nuevo juego';
             return (
 
                 <li key={move}>
@@ -80,30 +80,22 @@ class Game extends Component {
         } else {
             status = 'Turno de: ' + (xIsNext ? 'X' : 'O');
         }
+        //Si modo de juego es Vs CPU
         if (modeGame === 2) {
+            //Si turno es de O (CPU)
             if (!xIsNext) {
                 console.log("turno de O");
-                this.CPUMovement()
-                return (
-                    <GameUI status={status} moves={moves} squares={current.squares}
-                        onClick={(i) => this.handleClick(i)}>
-                    </GameUI>
-                )
-            } else {
-                console.log("turno de X");
-                return (
-                    <GameUI status={status} moves={moves} squares={current.squares}
-                        onClick={(i) => this.handleClick(i)}>
-                    </GameUI>
-                )
-            };
-        }else{
-            return (
-                <GameUI status={status} moves={moves} squares={current.squares}
-                    onClick={(i) => this.handleClick(i)}>
-                </GameUI>
-            ) 
-        }
+                if(history.length -1 == stepNumber){
+                    this.CPUMovement();
+                }
+                
+            }           
+        } 
+        return (
+            <GameUI status={status} moves={moves} squares={current.squares}
+                onClick={(i) => this.handleClick(i)} modeGame={modeGame}>
+            </GameUI>
+        )
 
     }
 }
