@@ -2,7 +2,6 @@ import React from 'react';
 import './../App.css';
 
 const Square = (props) => {
-   //style={{ color: props.value === "X"? "#e9ebeb":"282c34" }}
     return (
         <button 
             className="square"

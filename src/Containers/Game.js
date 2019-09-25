@@ -76,9 +76,9 @@ class Game extends Component {
 
         let status;
         if (winner) {
-            status = 'Ganador: ' + winner;
+            status = 'Ganador jugador ' + winner[0];
         } else {
-            status = 'Turno de: ' + (xIsNext ? 'X' : 'O');
+            status = 'Turno de ' + (xIsNext ? 'X' : 'O');
         }
         //Si modo de juego es Vs CPU
         if (modeGame === 2) {
@@ -93,16 +93,13 @@ class Game extends Component {
         } 
         return (
             <GameUI status={status} moves={moves} squares={current.squares}
-                onClick={(i) => this.handleClick(i)} modeGame={modeGame}>
+                onClick={(i) => this.handleClick(i)} modeGame={modeGame} >
             </GameUI>
         )
 
     }
 }
-/*function mapStateToProps(state){
-    console.log(state);
-}
-*/
+
 const mapStateToProps = state => ({
     history: state.history,
     stepNumber: state.stepNumber,

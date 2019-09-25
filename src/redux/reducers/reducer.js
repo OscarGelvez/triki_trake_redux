@@ -49,7 +49,6 @@ function reducer(state = defaultState, { type, payload }) {
                     modeGame: prevModeGame,
                 };
             }
-            console.log("pasa");
             return {
 
                 ...state,

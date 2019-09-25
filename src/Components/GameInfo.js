@@ -4,8 +4,7 @@ const GameInfo = (props) => {
 
     return (
         <div className="game-info">
-            <div className="statusText">{props.status}</div>        
-
+            <div className="statusText">{props.status}</div>      
             <ol>{props.moves}</ol>
         </div>
     );

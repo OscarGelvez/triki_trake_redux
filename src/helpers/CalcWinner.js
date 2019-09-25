@@ -1,4 +1,5 @@
 function calculateWinner(squares) {
+  let win = [];
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -12,7 +13,10 @@ function calculateWinner(squares) {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
+        win[0] = squares[a];
+        win[1] = lines[i];
+        console.log(win);
+        return win;
       }
     }
     return null;
